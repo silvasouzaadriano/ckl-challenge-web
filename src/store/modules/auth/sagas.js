@@ -1,0 +1,41 @@
+import { takeLatest, call, put, all } from 'redux-saga/effects';
+import { errorMessage } from '~/utils/Message';
+
+import { signInSuccess, signFailure } from './actions';
+import history from '~/services/history';
+import api from '~/services/api';
+
+export function* signIn({ payload }) {
+  try {
+    const { email, password } = payload;
+    const response = yield call(api.post, 'sessions', {
+      email,
+      password,
+    });
+    const { token, user } = response.data;
+    yield put(signInSuccess(token, user));
+    api.defaults.headers.Authorization = `Bearer ${token}`;
+    history.push('/interests');
+  } catch (e) {
+    errorMessage(e);
+    yield put(signFailure());
+  }
+}
+
+export function setToken({ payload }) {
+  if (!payload) return;
+  const { token } = payload.auth;
+  if (token) {
+    api.defaults.headers.Authorization = `Bearer ${token}`;
+  }
+}
+
+export function signOut() {
+  history.push('/login');
+}
+
+export default all([
+  takeLatest('persist/REHYDRATE', setToken),
+  takeLatest('@auth/SIGN_IN_REQUEST', signIn),
+  takeLatest('@auth/SIGN_OUT', signOut),
+]);
