@@ -15,14 +15,10 @@ export default function Header() {
 
   useEffect(() => {
     async function loadInterests() {
-      /**
       const response = await api.get('interests');
       const data = response.data.map(i => ({
         ...i,
       }));
-       */
-
-      const data = [];
       setInterests(data);
     }
     loadInterests();
