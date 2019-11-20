@@ -12,13 +12,13 @@ export default function RouteWrapper({
 }) {
   let Layout;
 
-  if (Component.name === 'News') {
+  if (Component.name === 'News' || !Component.name) {
     Layout = DefaultLayout;
   } else {
     Layout = AuthLayout;
   }
 
-  Layout = DefaultLayout;
+  // Layout = DefaultLayout;
 
   return (
     <Route
