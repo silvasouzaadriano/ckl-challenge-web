@@ -9,11 +9,19 @@ export const NewsList = styled.ul`
   max-width: 1170px;
   margin: 0 auto;
 
+  li:nth-child(3n + 1) {
+    figure.picture-legend figcaption {
+      top: -110px;
+      left: 200px;
+    }
+  }
+
   li:first-child {
     span.banner p img {
       align-self: center;
       max-width: 555px;
       margin-top: 5px;
+      size: 555px;
     }
     span.title {
       font-family: Lato-Regular;
@@ -24,6 +32,10 @@ export const NewsList = styled.ul`
     }
     span.description {
       display: none;
+    }
+    figure.picture-legend figcaption {
+      top: -200px;
+      left: 190px;
     }
   }
 
@@ -43,6 +55,37 @@ export const NewsList = styled.ul`
       align-self: center;
       max-width: 262px;
       margin-top: 5px;
+    }
+
+    figure {
+      font-family: Lato-Regular;
+      font-size: 18px;
+      text-align: center;
+      color: #fff;
+      margin: 5px;
+    }
+
+    figure.picture-legend figcaption {
+      opacity: 0;
+      position: 332px 317px;
+      position: relative;
+      text-align: center;
+
+      top: -110px;
+      left: 50px;
+
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 1px solid #ffffff;
+      width: 151px;
+
+      height: 45px;
+      padding: 10px;
+
+      transition: opacity 1s;
+    }
+
+    figure.picture-legend:hover figcaption {
+      opacity: 1;
     }
 
     span.title {

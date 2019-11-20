@@ -56,7 +56,14 @@ export default function News({ match }) {
             <span className="banner">
               <p>
                 {news.banner ? (
-                  <img src={news.banner.url} alt={news.title} />
+                  <>
+                    <figure className="picture-legend">
+                      <img src={news.banner.url} alt={news.title} />
+                      <figcaption>
+                        <h3>Read More</h3>
+                      </figcaption>
+                    </figure>
+                  </>
                 ) : null}
               </p>
             </span>
