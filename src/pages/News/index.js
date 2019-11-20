@@ -53,7 +53,10 @@ export default function News({ match }) {
           <span className="banner">
             <p>
               {news.banner ? (
-                <img src={news.banner.url} alt={news.title} />
+                <img
+                  src={news.banner.url.replace('localhost', '167.172.254.115')}
+                  alt={news.title}
+                />
               ) : null}
             </p>
           </span>
@@ -62,7 +65,13 @@ export default function News({ match }) {
 
           <span className="owner">
             {news.ownerbanner ? (
-              <img src={news.ownerbanner.url} alt={news.owner} />
+              <img
+                src={news.ownerbanner.url.replace(
+                  'localhost',
+                  '167.172.254.115'
+                )}
+                alt={news.owner}
+              />
             ) : null}
             <span>by {news.owner}</span>
           </span>
