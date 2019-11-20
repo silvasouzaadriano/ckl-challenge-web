@@ -75,9 +75,9 @@ export default function Header() {
 
           <span>
             <ul>
-              <button type="button" onClick={handleSignOut}>
+              <Link to="/">
                 <li>LOGIN</li>
-              </button>
+              </Link>
             </ul>
           </span>
         </aside>
