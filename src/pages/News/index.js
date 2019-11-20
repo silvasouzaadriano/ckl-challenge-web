@@ -58,7 +58,13 @@ export default function News({ match }) {
                 {news.banner ? (
                   <>
                     <figure className="picture-legend">
-                      <img src={news.banner.url} alt={news.title} />
+                      <img
+                        src={news.banner.url.replace(
+                          'localhost',
+                          '167.172.254.115'
+                        )}
+                        alt={news.title}
+                      />
                       <figcaption>
                         <h3>Read More</h3>
                       </figcaption>
