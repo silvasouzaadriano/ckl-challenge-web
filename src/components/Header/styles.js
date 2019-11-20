@@ -7,7 +7,7 @@ export const Container = styled.div`
 `;
 export const Content = styled.div`
   height: 64px;
-  max-width: 900px;
+  max-width: 1170px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -18,21 +18,7 @@ export const Content = styled.div`
     align-items: center;
 
     img {
-      margin-left: -210px;
-      margin-right: 250px;
-      padding-right: 500px;
-      border-right: 1px solid #eee;
-    }
-    & > a {
-      color: #d44059;
-      font-weight: bold;
-      max-height: 43px;
-      opacity: 0.7;
-      transition: 0.2s;
-      &:hover {
-        opacity: 1;
-        transform: translateY(-2px);
-      }
+      margin-left: 20px;
     }
   }
   aside {

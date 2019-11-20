@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import api from '~/services/api';
 
-import { NewsList } from './styles';
+import { NewsList, Teste } from './styles';
 
 export default function News({ match }) {
   const [newslist, setNews] = useState([]);
@@ -41,45 +41,47 @@ export default function News({ match }) {
   }, [interestId]);
 
   return (
-    <NewsList>
-      {newslist.map(news => (
-        <li key={news.id}>
-          <span className="interest">
-            <p>
-              <font color={news.interestColor.color}>{news.interest.name}</font>
-            </p>
-          </span>
+    <>
+      <NewsList>
+        {newslist.map(news => (
+          <li key={news.id}>
+            <span className="interest">
+              <p>
+                <font color={news.interestColor.color}>
+                  {news.interest.name}
+                </font>
+              </p>
+            </span>
 
-          <span className="banner">
-            <p>
-              {news.banner ? (
-                <img
-                  src={news.banner.url.replace('localhost', '167.172.254.115')}
-                  alt={news.title}
-                />
+            <span className="banner">
+              <p>
+                {news.banner ? (
+                  <>
+                    <figure className="picture-legend">
+                      <img src={news.banner.url} alt={news.title} />
+                      <figcaption>
+                        <h3>Read More</h3>
+                      </figcaption>
+                    </figure>
+                  </>
+                ) : null}
+              </p>
+            </span>
+
+            <span className="title">{news.title}</span>
+
+            <span className="owner">
+              {news.ownerbanner ? (
+                <img src={news.ownerbanner.url} alt={news.owner} />
               ) : null}
-            </p>
-          </span>
+              <span>by {news.owner}</span>
+            </span>
 
-          <span className="title">{news.title}</span>
-
-          <span className="owner">
-            {news.ownerbanner ? (
-              <img
-                src={news.ownerbanner.url.replace(
-                  'localhost',
-                  '167.172.254.115'
-                )}
-                alt={news.owner}
-              />
-            ) : null}
-            <span>by {news.owner}</span>
-          </span>
-
-          <span className="description">{news.description}</span>
-        </li>
-      ))}
-    </NewsList>
+            <span className="description">{news.description}</span>
+          </li>
+        ))}
+      </NewsList>
+    </>
   );
 }
 
