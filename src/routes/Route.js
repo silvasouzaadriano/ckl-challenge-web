@@ -12,8 +12,6 @@ export default function RouteWrapper({
 }) {
   let Layout;
 
-  console.tron.log(Component);
-
   if (Component.name === 'News') {
     Layout = DefaultLayout;
   } else {
