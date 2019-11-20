@@ -24,6 +24,7 @@ export default function News({ match }) {
         { name: 'SPORTS', color: '#f5a623' },
       ];
 
+      /**
       const response = await api.get('news', {
         params: { interest_id: interestId.value },
       });
@@ -34,6 +35,8 @@ export default function News({ match }) {
           interest => interest.name === news.interest.name
         ),
       }));
+       */
+      const data = [];
 
       setNews(data);
     }
