@@ -7,18 +7,10 @@ import DefaultLayout from '~/pages/_layouts/default';
 
 export default function RouteWrapper({
   component: Component,
-  isPrivate,
+  isDefaultLayout,
   ...rest
 }) {
-  let Layout;
-
-  if (Component.name === 'News') {
-    Layout = DefaultLayout;
-  } else {
-    Layout = AuthLayout;
-  }
-
-  Layout = AuthLayout;
+  const Layout = isDefaultLayout ? DefaultLayout : AuthLayout;
 
   return (
     <Route
@@ -34,10 +26,12 @@ export default function RouteWrapper({
 
 RouteWrapper.propTypes = {
   isPrivate: PropTypes.bool,
+  isDefaultLayout: PropTypes.bool,
   component: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
     .isRequired,
 };
 
 RouteWrapper.defaultProps = {
   isPrivate: false,
+  isDefaultLayout: false,
 };

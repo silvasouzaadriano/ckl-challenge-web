@@ -9,7 +9,7 @@ import Interest from '../pages/Interest';
 export default function Routes() {
   return (
     <Switch>
-      <Route path="/" exact component={SignIn} />
+      <Route path="/" exact component={News} isDefaultLayout />
       <Route path="/news/:id" component={News} />
       <Route path="/login" component={SignIn} />
       <Route path="/interests" component={Interest} />
