@@ -14,11 +14,13 @@ export default function RouteWrapper({
 
   console.tron.log(Component);
 
-  if (Component.name === 'News' || !Component.name) {
+  if (Component.name === 'News') {
     Layout = DefaultLayout;
   } else {
     Layout = AuthLayout;
   }
+
+  Layout = DefaultLayout;
 
   return (
     <Route
